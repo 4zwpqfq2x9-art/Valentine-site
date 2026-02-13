@@ -1,61 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Page</title>
+    <title>Valentine's Day Special</title>
     <style>
         body {
-            background: linear-gradient(to right, #ff798f, #f8cdda);
+            background: linear-gradient(to bottom right, pink, lightcoral);
+            text-align: center;
             font-family: Arial, sans-serif;
-            color: #fff;
-            text-align: center;
-            padding: 50px;
         }
-        button {
-            background: #ff4757;
-            border: none;
-            color: white;
-            padding: 15px 25px;
-            text-align: center;
-            text-decoration: none;
+        .grow {
             display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
             font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
         }
-        button:hover {
+        .grow:hover {
             transform: scale(1.1);
         }
-        #password-area { display: none; }
     </style>
-</head>
-<body>
-    <h1>Happy Valentine&#39;s Day!</h1>
-    <input type="password" id="password" placeholder="Enter the password">
-    <button onclick="showQuestion()">Submit</button>
-    <div id="password-area">
-        <h2>Valentine Question:</h2>
-        <p>What’s your favorite memory of Valentine&#39;s Day?</p>
-        <button onclick="growButton(this)">Click Me!</button>
-    </div>
     <script>
-        function showQuestion() {
-            var password = document.getElementById('password').value;
-            if (password === 'loveyou') {
-                document.getElementById('password-area').style.display = 'block';
+        function checkPassword() {
+            var password = prompt('Please enter the password:');
+            if (password === 'valentine') {
+                alert('Welcome to the Valentine's Day special page!');
+                document.getElementById('valentineSection').style.display = 'block';
             } else {
-                alert('Incorrect password!');
+                alert('Incorrect password. Please try again.');
             }
         }
-
-        function growButton(button) {
-            button.style.width = (button.offsetWidth * 1.2) + 'px';
-            button.style.height = (button.offsetHeight * 1.2) + 'px';
-            button.innerHTML = 'Grown!';
-        }
     </script>
+</head>
+<body>
+    <h1>Happy Valentine's Day!</h1>
+    <button class="grow" onclick="checkPassword()">Enter with Password</button>
+    <div id="valentineSection" style="display:none; margin-top:20px;">
+        <h2>Valentine's Question:</h2>
+        <p>Who is your favorite Valentine?</p>
+        <h2>Physics Problem:</h2>
+        <p>Calculate the potential energy of a 2 kg object at a height of 10 m (PE = mgh).</p>
+    </div>
 </body>
 </html>
