@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Только для тебя ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff6b81, #ff9ff3);
+    text-align: center;
+    color: white;
+}
+
+.container {
+    background: rgba(255,255,255,0.15);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.yes {
+    background: white;
+    color: #ff4d6d;
+}
+
+.think {
+    background: #ff4d6d;
+    color: white;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h2>Введи пароль ❤️</h2>
+    <input type="password" id="passwordInput">
+    <br>
+    <button onclick="checkPassword()">Войти</button>
+</div>
+
+<script>
+
+const correctPassword = "Ilyasbigdick"; // 
+const secretLink = "https://docs.google.com/document/d/11SavJ3wdmNNS4U-L9Cr9reKcCirNtmmeU3VImvPkNuU/edit?usp=drivesdk"; //
+
+function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    if(input === correctPassword) {
+        showValentine();
+    } else {
+        alert("Неправильный пароль 💔");
+    }
+}
+
+function showValentine() {
+    document.getElementById("content").innerHTML = `
+        <h2>Ты будешь моей валентинкой? ❤️</h2>
+        <button class="yes" id="yesBtn" onclick="showPhysics()">Да</button>
+        <button class="think" id="thinkBtn" onclick="growYes()">Я подумаю</button>
+    `;
+}
+
+let yesSize = 18;
+
+function growYes() {
+    yesSize += 8;
+    document.getElementById("yesBtn").style.fontSize = yesSize + "px";
+}
+
+function showPhysics() {
+    document.getElementById("content").innerHTML = `
+        <h2>Реши задачу </h2>
+        <p>В цепи протекает ток 2 А.
+Сопротивление резистора равно 6 Ом.
+Найди напряжение на участке цепи.
+(Ответ указывать без единиц измерения.)</p> <!-- 
+        <input type="text" id="12">
+        <br>
+        <button onclick="checkAnswer()">Ответить</button>
+    `;
+}
+
+function checkAnswer() {
+    const correctAnswer = "30"; // ← поменяй правильный ответ
+    const userAnswer = document.getElementById("answer").value;
+
+    if(userAnswer === correctAnswer) {
+        openSecret();
+    } else {
+        alert("Неправильно 😏 Попробуй ещё");
+    }
+}
+
+function openSecret() {
+    window.location.href = secretLink;
+}
+
+</script>
+
+</body>
+</html>
