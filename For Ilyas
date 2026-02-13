@@ -11,45 +11,89 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff6b81, #ff9ff3);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff69b4, #ffb6d9, #ffc0cb);
     text-align: center;
-    color: white;
+    color: #fff;
 }
 
 .container {
-    background: rgba(255,255,255,0.15);
-    padding: 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    background: rgba(255, 192, 203, 0.3);
+    padding: 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    max-width: 700px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+    font-size: 32px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    padding: 12px 25px;
+    padding: 14px 32px;
     border: none;
     border-radius: 25px;
-    margin: 10px;
+    margin: 12px;
     cursor: pointer;
     font-size: 18px;
-    transition: 0.3s;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
 .yes {
     background: white;
-    color: #ff4d6d;
+    color: #ff69b4;
+}
+
+.yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
 }
 
 .think {
-    background: #ff4d6d;
+    background: #ff69b4;
     color: white;
 }
 
+.think:hover {
+    background: #ff1493;
+    transform: scale(1.05);
+}
+
 input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 10px;
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 192, 203, 0.5);
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 16px;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+input::placeholder {
+    color: #ffb6d9;
 }
 </style>
 </head>
@@ -57,16 +101,16 @@ input {
 <body>
 
 <div class="container" id="content">
-    <h2>Введи пароль ❤️</h2>
-    <input type="password" id="passwordInput">
+    <h2>🎀 Введи пароль ❤️</h2>
+    <input type="password" id="passwordInput" placeholder="Пароль">
     <br>
-    <button onclick="checkPassword()">Войти</button>
+    <button class="yes" onclick="checkPassword()">Войти</button>
 </div>
 
 <script>
 
-const correctPassword = "Ilyasbigdick"; // 
-const secretLink = "https://docs.google.com/document/d/11SavJ3wdmNNS4U-L9Cr9reKcCirNtmmeU3VImvPkNuU/edit?usp=drivesdk"; //
+const correctPassword = "Ilyasbigdick";
+const secretLink = "https://docs.google.com/document/d/11SavJ3wdmNNS4U-L9Cr9reKcCirNtmmeU3VImvPkNuU/edit?usp=drivesdk";
 
 function checkPassword() {
     const input = document.getElementById("passwordInput").value;
@@ -74,14 +118,15 @@ function checkPassword() {
         showValentine();
     } else {
         alert("Неправильный пароль 💔");
+        document.getElementById("passwordInput").value = "";
     }
 }
 
 function showValentine() {
     document.getElementById("content").innerHTML = `
-        <h2>Ты будешь моей валентинкой? ❤️</h2>
-        <button class="yes" id="yesBtn" onclick="showPhysics()">Да</button>
-        <button class="think" id="thinkBtn" onclick="growYes()">Я подумаю</button>
+        <h2>💕 Ты будешь моей валентинкой? 💕</h2>
+        <button class="yes" id="yesBtn" onclick="showPhysics()">Да ✨</button>
+        <button class="think" id="thinkBtn" onclick="growYes()">Я подумаю 🤔</button>
     `;
 }
 
@@ -94,25 +139,27 @@ function growYes() {
 
 function showPhysics() {
     document.getElementById("content").innerHTML = `
-        <h2>Реши задачу </h2>
-        <p>В цепи протекает ток 2 А.
-Сопротивление резистора равно 6 Ом.
-Найди напряжение на участке цепи.
-(Ответ указывать без единиц измерения.)</p> <!-- 
-        <input type="text" id="12">
+        <h2>🧮 Реши задачу</h2>
+        <p>В цепи протекает ток <strong>2 А</strong>.<br>
+        Сопротивление резистора равно <strong>6 Ом</strong>.<br>
+        Найди напряжение на участке цепи.<br>
         <br>
-        <button onclick="checkAnswer()">Ответить</button>
+        <em>(Ответ указывать без единиц измерения)</em></p>
+        <input type="text" id="answer" placeholder="Твой ответ">
+        <br>
+        <button class="yes" onclick="checkAnswer()">Ответить ✓</button>
     `;
 }
 
 function checkAnswer() {
-    const correctAnswer = "30"; // ← поменяй правильный ответ
-    const userAnswer = document.getElementById("answer").value;
+    const correctAnswer = "12";
+    const userAnswer = document.getElementById("answer").value.trim();
 
     if(userAnswer === correctAnswer) {
         openSecret();
     } else {
-        alert("Неправильно 😏 Попробуй ещё");
+        alert("Неправильно 😏 Попробуй ещё раз!");
+        document.getElementById("answer").value = "";
     }
 }
 
