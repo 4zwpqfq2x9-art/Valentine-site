@@ -3,53 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day</title>
+    <title>Valentine Page</title>
     <style>
         body {
-            background-color: pink;
+            background: linear-gradient(to right, #ff798f, #f8cdda);
             font-family: Arial, sans-serif;
+            color: #fff;
             text-align: center;
-            color: white;
+            padding: 50px;
         }
-        .grow-button {
-            background-color: red;
+        button {
+            background: #ff4757;
             border: none;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
             font-size: 16px;
+            margin: 4px 2px;
             cursor: pointer;
-            transition: transform 0.2s;
+            border-radius: 12px;
+            transition: transform 0.3s;
         }
-        .grow-button:hover {
+        button:hover {
             transform: scale(1.1);
         }
+        #password-area { display: none; }
     </style>
 </head>
 <body>
-    <h1>Happy Valentine's Day!</h1>
-    
-    <!-- Password Protection -->
-    <h2>Please enter the password to proceed:</h2>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Submit</button>
-    
+    <h1>Happy Valentine&#39;s Day!</h1>
+    <input type="password" id="password" placeholder="Enter the password">
+    <button onclick="showQuestion()">Submit</button>
+    <div id="password-area">
+        <h2>Valentine Question:</h2>
+        <p>What’s your favorite memory of Valentine&#39;s Day?</p>
+        <button onclick="growButton(this)">Click Me!</button>
+    </div>
     <script>
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            if (password === 'valentine') {
-                alert('Access granted!');
+        function showQuestion() {
+            var password = document.getElementById('password').value;
+            if (password === 'loveyou') {
+                document.getElementById('password-area').style.display = 'block';
             } else {
-                alert('Access denied. Try again.');
+                alert('Incorrect password!');
             }
         }
+
+        function growButton(button) {
+            button.style.width = (button.offsetWidth * 1.2) + 'px';
+            button.style.height = (button.offsetHeight * 1.2) + 'px';
+            button.innerHTML = 'Grown!';
+        }
     </script>
-
-    <!-- Valentine Question -->
-    <h2>What is your favorite Valentine’s color?</h2>
-    <button class="grow-button" onclick="alert('Thanks for sharing!')">Click me!</button>
-
-    <!-- Physics Problem -->
-    <h2>What is 3 + 9?</h2>
-    <p>The correct answer is: <strong>12</strong></p>
 </body>
 </html>
