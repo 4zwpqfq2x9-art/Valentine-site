@@ -3,16 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Day Special</title>
+    <title>Valentine's Day Fun</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7f7f, #ffb2b2);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            animation: gradient 5s infinite alternate;
+        }
+        @keyframes gradient {
+            0% { background: #ff7f7f; }
+            100% { background: #ffb2b2; }
+        }
+        .content {
+            display: none;
+        }
+        .protected {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Happy Valentine's Day!</h1>
-    <p>What is your favorite thing about Valentine's Day?</p>
-    
-    <h2>Password: Ilyasbigdick</h2>
-    
-    <h3>Physics Problem</h3>
-    <p>Calculate the speed (in m/s) of an object that travels a distance of 12 meters in 1 second.</p>
-    <p><strong>Answer: 12 m/s</strong></p>
+    <h1>Welcome to Valentine's Day Fun!</h1>
+    <div class="protected">
+        <h2>Enter Password to Continue</h2>
+        <input type="password" id="password" placeholder="Enter Password" />
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+    <div class="content" id="valentineContent">
+        <h2>Valentine Question</h2>
+        <p>What is your favorite memory of Valentine's Day?</p>
+        <h2>Physics Problem</h2>
+        <p>Calculate the force required to move a 5 kg object at an acceleration of 2 m/s².</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            const error = document.getElementById("error");
+            if (password === 'love2026') { // Example password
+                document.querySelector('.protected').style.display = 'none';
+                document.getElementById('valentineContent').style.display = 'block';
+            } else {
+                error.textContent = "Incorrect password. Please try again.";
+            }
+        }
+    </script>
 </body>
 </html>
